@@ -7,37 +7,43 @@
     @vite('resources/css/app.css')
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-<body class="flex flex-col min-h-screen bg-gray-100">
+<body class="flex flex-col min-h-screen bg-gradient-to-br from-orange-50 to-yellow-50">
 
     <div class="flex flex-1">
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-64 bg-gray-800 text-white flex flex-col transition-all duration-300 ease-in-out">
+        <aside id="sidebar" 
+            class="w-64 bg-gradient-to-b from-orange-500 to-amber-600 text-white flex flex-col shadow-lg transition-all duration-300 ease-in-out rounded-r-2xl">
+            
             <!-- Header -->
-            <div class="p-4 text-center font-bold border-b border-gray-700 flex items-center justify-center">
-                🍹 <span class="ml-2 sidebar-text">Trà Sữa Ngon</span>
+            <div class="p-4 text-center font-bold border-b border-orange-400 flex items-center justify-center">
+                🧋 <span class="ml-2 sidebar-text">Trà Sữa Ngon</span>
             </div>
 
             <!-- Links -->
-            <nav class="flex-1 mt-4 space-y-1">
-                <a href="{{ route('homepage') }}" class="flex items-center px-4 py-2 hover:bg-gray-700 transition">
+            <nav class="flex-1 mt-4 space-y-2">
+                <a href="{{ route('homepage') }}" 
+                   class="flex items-center px-4 py-2 mx-2 rounded-lg hover:bg-orange-400 hover:scale-[1.02] transition">
                     <i class="ph ph-house text-lg"></i>
                     <span class="ml-2 sidebar-text">Trang chủ</span>
                 </a>
-                <a href="{{ route('products.index') }}" class="flex items-center px-4 py-2 hover:bg-gray-700 transition">
+                <a href="{{ route('products.index') }}" 
+                   class="flex items-center px-4 py-2 mx-2 rounded-lg hover:bg-orange-400 hover:scale-[1.02] transition">
                     <i class="ph ph-list text-lg"></i>
                     <span class="ml-2 sidebar-text">Danh sách sản phẩm</span>
                 </a>
-                <a href="{{ route('products.create') }}" class="flex items-center px-4 py-2 hover:bg-gray-700 transition">
+                <a href="{{ route('products.create') }}" 
+                   class="flex items-center px-4 py-2 mx-2 rounded-lg hover:bg-orange-400 hover:scale-[1.02] transition">
                     <i class="ph ph-plus-circle text-lg"></i>
                     <span class="ml-2 sidebar-text">Thêm sản phẩm</span>
                 </a>
             </nav>
 
             <!-- Logout -->
-            <div class="border-t border-gray-700 p-2">
+            <div class="border-t border-orange-400 p-2">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="flex items-center w-full px-4 py-2 hover:bg-gray-700 transition">
+                    <button type="submit" 
+                        class="flex items-center w-full px-4 py-2 mx-2 rounded-lg bg-red-500/80 hover:bg-red-600 hover:scale-[1.02] transition">
                         <i class="ph ph-sign-out text-lg"></i>
                         <span class="ml-2 sidebar-text">Đăng xuất</span>
                     </button>
@@ -45,7 +51,8 @@
             </div>
 
             <!-- Toggle button -->
-            <button id="toggleBtn" class="mx-auto my-3 text-gray-400 hover:text-white transition">
+            <button id="toggleBtn" 
+                class="mx-auto my-3 text-orange-200 hover:text-white transition">
                 <i class="ph ph-caret-double-left text-xl"></i>
             </button>
         </aside>
@@ -57,8 +64,8 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-gray-200 text-center py-3 border-t border-gray-300">
-        <p class="text-sm text-gray-600">&copy; {{ date('Y') }} Quản lý Trà Sữa. All rights reserved.</p>
+    <footer class="bg-orange-100 text-center py-3 border-t border-orange-200">
+        <p class="text-sm text-orange-700">&copy; {{ date('Y') }} Quản lý Trà Sữa. All rights reserved.</p>
     </footer>
 
     <!-- Script toggle sidebar -->
