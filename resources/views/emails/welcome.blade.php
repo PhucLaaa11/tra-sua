@@ -1,13 +1,13 @@
 @component('mail::message')
-# Xin chào {{ $user->name }} 👋
+# Hello {{ $user->name }} 👋
 
-Cảm ơn bạn đã đăng ký tại **Trà Sữa Ngon** 🍹.  
-Chúc bạn có trải nghiệm tuyệt vời cùng hệ thống quản lý sản phẩm của chúng tôi.
+Thank you for registering at **Boba Shop** 🍹.  
+We hope you have a wonderful experience with our product management system.
 
 @component('mail::button', ['url' => url('/')])
-Bắt đầu ngay
+Get Started
 @endcomponent
 
-Thân ái,<br>
+Best regards,<br>
 {{ config('app.name') }}
 @endcomponent

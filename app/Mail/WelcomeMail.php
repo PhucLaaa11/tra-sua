@@ -25,7 +25,7 @@ class WelcomeMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Chào mừng đến với Trà Sữa Ngon!')
+        return $this->subject('Welcome to Boba Shop')
                     ->markdown('emails.welcome');
     }
 }

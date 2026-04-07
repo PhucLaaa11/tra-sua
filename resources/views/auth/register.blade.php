@@ -1,59 +1,63 @@
-<x-guest-layout>
-    <div class="max-w-md mx-auto mt-12 bg-white p-8 shadow-lg rounded-lg">
-        <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">Đăng ký tài khoản</h2>
+@extends('layouts.app')
 
-        <!-- Form register -->
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
+@section('title', 'Register')
 
-            <!-- Name -->
-            <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700">Tên</label>
-                <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-                @error('name')
-                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                @enderror
-            </div>
+@section('content')
+<div class="d-flex justify-content-center align-items-center" style="min-height:80vh;">
+    <div class="card shadow-sm" style="width: 400px;">
+        <div class="card-body">
+            <h3 class="text-center mb-4">Register</h3>
 
-            <!-- Email -->
-            <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" required
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-                @error('email')
-                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                @enderror
-            </div>
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
 
-            <!-- Password -->
-            <div class="mb-4">
-                <label for="password" class="block text-sm font-medium text-gray-700">Mật khẩu</label>
-                <input id="password" type="password" name="password" required
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-                @error('password')
-                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                @enderror
-            </div>
+                <!-- Name -->
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus
+                           class="form-control @error('name') is-invalid @enderror">
+                    @error('name')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
-            <!-- Confirm Password -->
-            <div class="mb-6">
-                <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Xác nhận mật khẩu</label>
-                <input id="password_confirmation" type="password" name="password_confirmation" required
-                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" />
-            </div>
+                <!-- Email -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" required
+                           class="form-control @error('email') is-invalid @enderror">
+                    @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
-            <!-- Button -->
-            <button type="submit"
-                class="w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition">
-                Đăng ký
-            </button>
-        </form>
+                <!-- Password -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <input id="password" type="password" name="password" required
+                           class="form-control @error('password') is-invalid @enderror">
+                    @error('password')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
+                </div>
 
-        <!-- Login link -->
-        <p class="mt-6 text-center text-sm text-gray-600">
-            Đã có tài khoản?
-            <a href="{{ route('login') }}" class="text-indigo-600 hover:underline">Đăng nhập</a>
-        </p>
+                <!-- Confirm Password -->
+                <div class="mb-3">
+                    <label for="password_confirmation" class="form-label">Confirm Password</label>
+                    <input id="password_confirmation" type="password" name="password_confirmation" required
+                           class="form-control">
+                </div>
+
+                <!-- Button -->
+                <button type="submit" class="btn btn-success w-100">Register</button>
+            </form>
+
+            <!-- Login link -->
+            <p class="mt-3 text-center">
+                Already have an account? 
+                <a href="{{ route('login') }}">Login now</a>
+            </p>
+        </div>
     </div>
-</x-guest-layout>
+</div>
+@endsection

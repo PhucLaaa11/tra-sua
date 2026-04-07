@@ -11,7 +11,8 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->bigInteger('price'); // dùng bigInteger thay vì decimal
+            // Translate: "using bigInteger instead of decimal"
+            $table->bigInteger('price'); 
             $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->boolean('is_featured')->default(0);

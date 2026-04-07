@@ -43,15 +43,15 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // 🔹 phát event đăng ký (mặc định để gửi Verify Email nếu bật)
+        // 🔹 Fire registration event (default for sending Verify Email if enabled)
         event(new Registered($user));
 
-        // 🔹 Gửi mail chào mừng
+        // 🔹 Send welcome email
         Mail::to($user->email)->send(new WelcomeMail($user));
-        // hoặc dùng send() nếu bạn chưa cấu hình queue
+        // or use send() if you haven't configured the queue
         // \Mail::to($user->email)->send(new \App\Mail\WelcomeMail($user));
 
-        // 🔹 tự động login user sau khi đăng ký
+        // 🔹 Automatically login user after registration
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
